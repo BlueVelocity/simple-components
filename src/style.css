@@ -1,3 +1,69 @@
-p {
-  color: red;
+@import "./boilerplateStyle.css";
+
+/* Drop down menu styling */
+.drop-down-menu {
+  position: relative;
+  width: 150px;
+}
+
+.drop-down-menu > div {
+  display: flex;
+  width: 100px;
+}
+
+.drop-down-menu p,
+.drop-down-menu li {
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.drop-down-menu span {
+  transition: transform 100ms ease-in-out;
+}
+
+.drop-down-menu.clicked span {
+  transform: rotate(90deg);
+}
+
+.drop-down-menu.clicked ul {
+  transform: translate(0px, 10px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drop-down-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background-color: #374151;
+  color: white;
+
+  border-radius: 0.5rem;
+
+  position: relative;
+  opacity: 0;
+  transition:
+    transform 300ms ease-out,
+    opacity 150ms ease-out;
+
+  padding: 0.5rem;
+  list-style-type: none;
+  pointer-events: none;
+}
+
+.drop-down-menu ul li {
+  flex: 1;
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+}
+
+.drop-down-menu ul li::after {
+  flex: 1;
+  content: ">";
+  margin-left: auto;
+}
+
+.drop-down-menu ul li:hover {
+  background-color: black;
 }
