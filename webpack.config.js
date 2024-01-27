@@ -11,6 +11,7 @@ const stylesHandler = isProduction
   : "style-loader";
 
 const config = {
+  target: "web",
   entry: [path.resolve(__dirname, "./src/index.js")],
   devtool: "inline-source-map",
   output: {
@@ -19,6 +20,7 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    watchFiles: "./src/",
   },
   plugins: [
     new HtmlWebpackPlugin({
