@@ -1,4 +1,4 @@
 import "./style.css";
-import loadDropDowns from "./components/drop-down-menu/dropDownmenu";
+import loadDropDowns from "./components/drop-down-menu/dropDown";
 
 loadDropDowns();
