@@ -46,7 +46,7 @@
   align-items: center;
 
   background-color: #f97316;
-  color: white;
+  color: black;
   border-radius: 0.5rem;
 
   transition: transform 100ms ease-in-out;
@@ -68,6 +68,8 @@
   width: 100%;
   min-width: fit-content;
   max-width: 15rem;
+
+  padding-top: 0.3rem;
 
   display: flex;
   flex-direction: column;
@@ -95,7 +97,7 @@
   flex: 1;
 
   margin: 0;
-  padding: 0.2rem 0.4rem;
+  padding: 0.3rem 0.4rem;
 }
 
 .drop-down-menu ul li:hover {
