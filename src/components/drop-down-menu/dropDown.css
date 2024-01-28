@@ -1,5 +1,12 @@
 /* Drop down menu styling */
 .drop-down-menu {
+  --main-color: #374151;
+  --secondary-color: #f97316;
+  --selection-color: #4d5b72;
+  --background-color: #374151;
+
+  font-family: "Roboto", serif;
+
   position: relative;
 
   user-select: none;
@@ -14,7 +21,7 @@
 
   padding: 0.3rem 0.3rem 0.3rem 0.5rem;
 
-  background-color: #374151;
+  background-color: var(--background-color);
   color: white;
 
   border-radius: 0.7rem;
@@ -45,7 +52,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #f97316;
+  background-color: var(--secondary-color);
   color: black;
   border-radius: 0.5rem;
 
@@ -75,7 +82,7 @@
   flex-direction: column;
   justify-content: space-around;
 
-  background-color: #374151;
+  background-color: var(--main-color);
   color: white;
 
   border-radius: 0 0 0.7rem 0.7rem;
@@ -101,6 +108,6 @@
 }
 
 .drop-down-menu ul li:hover {
-  background-color: #4d5b72;
+  background-color: var(--selection-color);
   cursor: pointer;
 }
