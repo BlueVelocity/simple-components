@@ -11,6 +11,10 @@ export default function () {
       currentElement.classList.toggle("clicked");
     });
 
+    currentElement.lastElementChild.addEventListener("click", (event) =>
+      event.stopPropagation(),
+    );
+
     window.addEventListener("click", function () {
       if (currentElement.classList.contains("clicked")) {
         currentElement.classList.remove("clicked");
