@@ -17,7 +17,7 @@
 
   width: fit-content;
   min-width: 8rem;
-  max-width: 14rem;
+  max-width: 25rem;
 
   padding: 0.3rem 0.3rem 0.3rem 0.5rem;
 
@@ -43,8 +43,8 @@
 }
 
 .drop-down-menu span {
-  width: 1rem;
-  height: 1rem;
+  width: 1em;
+  height: 1em;
 
   margin-left: 1rem;
 
@@ -54,7 +54,7 @@
 
   background-color: var(--secondary-color);
   color: black;
-  border-radius: 0.5rem;
+  border-radius: 0.5em;
 
   transition: transform 100ms ease-in-out;
 }
@@ -64,7 +64,7 @@
 }
 
 .drop-down-menu.clicked ul {
-  transform: translate(0px, 5px);
+  transform: translate(0, 0.5rem);
   opacity: 1;
   pointer-events: all;
 }
@@ -74,7 +74,7 @@
 
   width: 100%;
   min-width: fit-content;
-  max-width: 15rem;
+  max-width: 25rem;
 
   padding-top: 0.3rem;
 
@@ -92,7 +92,7 @@
     transform 300ms ease-out,
     opacity 150ms ease-out;
 
-  translate: 0 -5px;
+  translate: 0 -0.5rem;
 
   overflow: hidden;
 
