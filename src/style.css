@@ -1,4 +1,5 @@
 @import "./components/drop-down-menu/dropDown.css";
+@import "./components/mobile-menu/mobileMenu.css";
 
 /* FONTS */
 
@@ -156,4 +157,10 @@ body {
   gap: 1rem;
   width: 100%;
   height: 100%;
+
+  font-size: 1.6rem;
+}
+
+:root {
+  font-size: 62.5%;
 }
