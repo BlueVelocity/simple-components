@@ -1,0 +1,13 @@
+/* Sliding frames styling */
+.sliding-frames {
+  --main-color: #374151;
+  --secondary-color: #f97316;
+  --selection-color: #4d5b72;
+  --background-color: #374151;
+}
+
+.sliding-frames img {
+  flex: 1;
+  max-width: 20rem;
+  max-height: 20rem;
+}
