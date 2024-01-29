@@ -35,6 +35,22 @@ export default function () {
     frameBackElement.appendChild(this.element);
   }
 
+  function goToFrame(imgId) {
+    if (Number(imgId) === images.length - 1) {
+      images[Number(imgId) - 1].showPictureB();
+      images[Number(imgId)].showPicture();
+      images[0].showPictureA();
+    } else if (Number(imgId) === 0) {
+      images[images.length - 1].showPictureB();
+      images[Number(imgId)].showPicture();
+      images[1].showPictureA();
+    } else {
+      images[Number(imgId) - 1].showPictureB();
+      images[Number(imgId)].showPicture();
+      images[Number(imgId) + 1].showPictureA();
+    }
+  }
+
   images = images.map((image, index) => {
     const imageElement = document.createElement("img");
     imageElement.src = image;
@@ -46,6 +62,11 @@ export default function () {
 
     const dotsContainer = document.querySelector(".frame-dots");
     dotsContainer.appendChild(dotElement);
+
+    dotElement.addEventListener("click", (event) => {
+      event.stopPropagation();
+      goToFrame(event.target.getAttribute("data-dot-id"));
+    });
 
     return {
       index,
