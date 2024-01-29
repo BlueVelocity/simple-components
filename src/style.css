@@ -145,10 +145,6 @@ table {
 }
 
 /* SINGLE PAGE PAGE SIZE */
-html {
-  width: 100vw;
-  height: 100vh;
-}
 
 body {
   display: grid;
@@ -156,8 +152,8 @@ body {
   align-items: center;
   justify-items: center;
   gap: 1rem;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 
   font-size: 1.6rem;
 }

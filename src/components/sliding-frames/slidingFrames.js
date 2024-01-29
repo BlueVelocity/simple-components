@@ -35,6 +35,11 @@ export default function () {
   const frameAdvance = document.querySelector(".frame-advance");
   const frameBack = document.querySelector(".frame-back");
 
+  function emphasizeMainFrame() {
+    frameElement.classList.toggle("bounce");
+    setTimeout(() => frameElement.classList.toggle("bounce"), 200);
+  }
+
   frameAdvance.addEventListener("click", () => {
     const imgId = frameElement.firstChild.getAttribute("data-img-id");
     if (Number(imgId) + 2 === images.length) {
@@ -50,6 +55,8 @@ export default function () {
       images[0].showPicture();
       images[1].showPictureA();
     }
+
+    emphasizeMainFrame();
   });
 
   frameBack.addEventListener("click", () => {
@@ -67,6 +74,8 @@ export default function () {
       images[Number(imgId) - 1].showPicture();
       images[Number(imgId) - 2].showPictureB();
     }
+
+    emphasizeMainFrame();
   });
 
   images[images.length - 1].showPictureB();
