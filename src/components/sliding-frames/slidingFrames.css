@@ -5,7 +5,11 @@
   --selection-color: #4d5b72;
   --background-color: #374151;
 
+  position: relative;
+
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sliding-frames > * {
@@ -15,4 +19,29 @@
 .sliding-frames img {
   max-width: 20rem;
   max-height: 20rem;
+}
+
+.sliding-frames button {
+  position: relative;
+
+  width: 4rem;
+  height: 4rem;
+
+  margin: 1rem;
+
+  font-size: 2rem;
+
+  background-color: var(--background-color);
+  color: white;
+
+  opacity: 50%;
+
+  border-radius: 2rem;
+  border: none;
+
+  cursor: pointer;
+}
+
+.sliding-frames button:active {
+  opacity: 1;
 }
