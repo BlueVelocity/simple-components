@@ -17,6 +17,8 @@
   color: white;
 
   transition: transform 500ms ease-in-out;
+
+  z-index: 999;
 }
 
 .mobile-menu.reveal {
