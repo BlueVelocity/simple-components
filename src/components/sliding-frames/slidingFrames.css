@@ -11,8 +11,6 @@
   justify-content: center;
   align-items: center;
 
-  height: 100%;
-
   padding: 1rem;
 
   background-color: var(--background-color);
@@ -77,6 +75,26 @@
   transition: transform 50ms;
 }
 
-.bounce {
+.frame.bounce {
   transform: scale(1.01);
+}
+
+.frame-dots {
+  position: absolute;
+  bottom: 5%;
+
+  width: 25%;
+
+  font-size: 5rem;
+
+  user-select: none;
+}
+
+.frame-dots > span {
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.highlighted-dot {
+  color: white;
 }

@@ -9,9 +9,20 @@ export default function () {
   const frameAdvanceElement = document.querySelector(".frame-a");
   const frameBackElement = document.querySelector(".frame-b");
 
+  function highlightDot(id) {
+    document
+      .querySelectorAll("[data-dot-id]")
+      .forEach((element) => element.classList.remove("highlighted-dot"));
+
+    const dotElement = document.querySelector(`[data-dot-id="${id}"]`);
+
+    dotElement.classList.add("highlighted-dot");
+  }
+
   function showPicture() {
     frameElement.innerHTML = "";
     frameElement.appendChild(this.element);
+    highlightDot(this.index);
   }
 
   function showPictureA() {
@@ -29,7 +40,20 @@ export default function () {
     imageElement.src = image;
     imageElement.setAttribute("data-img-id", index);
 
-    return { element: imageElement, showPicture, showPictureA, showPictureB };
+    const dotElement = document.createElement("span");
+    dotElement.innerText = ".";
+    dotElement.setAttribute("data-dot-id", index);
+
+    const dotsContainer = document.querySelector(".frame-dots");
+    dotsContainer.appendChild(dotElement);
+
+    return {
+      index,
+      element: imageElement,
+      showPicture,
+      showPictureA,
+      showPictureB,
+    };
   });
 
   const frameAdvance = document.querySelector(".frame-advance");
