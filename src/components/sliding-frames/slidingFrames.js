@@ -4,7 +4,7 @@ import blueImg from "./images/blue.png";
 import purpleImg from "./images/purple.png";
 
 export default function () {
-  let images = [redImg, greenImg, blueImg, purpleImg];
+  let images = [blueImg, greenImg, purpleImg, redImg];
   const frameElement = document.querySelector(".frame");
   const frameAdvanceElement = document.querySelector(".frame-a");
   const frameBackElement = document.querySelector(".frame-b");
@@ -37,11 +37,7 @@ export default function () {
 
   frameAdvance.addEventListener("click", () => {
     const imgId = frameElement.firstChild.getAttribute("data-img-id");
-    if (Number(imgId) === images.length) {
-      images[images.length].showPictureB();
-      images[0].showPicture();
-      images[1].showPictureA();
-    } else if (Number(imgId) + 2 === images.length) {
+    if (Number(imgId) + 2 === images.length) {
       images[Number(imgId)].showPictureB();
       images[Number(imgId) + 1].showPicture();
       images[0].showPictureA();
@@ -58,22 +54,18 @@ export default function () {
 
   frameBack.addEventListener("click", () => {
     const imgId = frameElement.firstChild.getAttribute("data-img-id");
-    if (Number(imgId) === images.length) {
-      images[images.length].showPictureA();
+    if (Number(imgId) - 1 < 0) {
+      images[images.length - 2].showPictureB();
+      images[images.length - 1].showPicture();
+      images[0].showPictureA();
+    } else if (Number(imgId) - 1 === 0) {
+      images[Number(imgId)].showPictureA();
       images[0].showPicture();
-      images[1].showPictureB();
-    } else if (Number(imgId) + 2 === images.length) {
-      images[Number(imgId)].showPictureA();
-      images[Number(imgId) + 1].showPicture();
-      images[0].showPictureB();
-    } else if (Number(imgId) + 1 < images.length) {
-      images[Number(imgId)].showPictureA();
-      images[Number(imgId) + 1].showPicture();
-      images[Number(imgId) + 2].showPictureB();
+      images[images.length - 1].showPictureB();
     } else {
-      images[images.length - 1].showPictureA();
-      images[0].showPicture();
-      images[1].showPictureB();
+      images[Number(imgId)].showPictureA();
+      images[Number(imgId) - 1].showPicture();
+      images[Number(imgId) - 2].showPictureB();
     }
   });
 
