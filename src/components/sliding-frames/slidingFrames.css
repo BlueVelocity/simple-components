@@ -25,12 +25,8 @@
   align-items: center;
 }
 
-.sliding-frames .slider-image {
-  flex: 1;
-}
-
-.slider-image img {
-  max-width: 80%;
+.sliding-frames img {
+  max-width: 100%;
   height: auto;
 
   border-radius: 1rem;
@@ -38,7 +34,7 @@
 
 .frame-a img,
 .frame-b img {
-  max-width: 70%;
+  max-width: 90%;
 }
 
 .sliding-frames button {

@@ -35,22 +35,6 @@ export default function () {
     frameBackElement.appendChild(this.element);
   }
 
-  function goToFrame(imgId) {
-    if (Number(imgId) === images.length - 1) {
-      images[Number(imgId) - 1].showPictureB();
-      images[Number(imgId)].showPicture();
-      images[0].showPictureA();
-    } else if (Number(imgId) === 0) {
-      images[images.length - 1].showPictureB();
-      images[Number(imgId)].showPicture();
-      images[1].showPictureA();
-    } else {
-      images[Number(imgId) - 1].showPictureB();
-      images[Number(imgId)].showPicture();
-      images[Number(imgId) + 1].showPictureA();
-    }
-  }
-
   images = images.map((image, index) => {
     const imageElement = document.createElement("img");
     imageElement.src = image;
@@ -80,12 +64,7 @@ export default function () {
   const frameAdvance = document.querySelector(".frame-advance");
   const frameBack = document.querySelector(".frame-back");
 
-  function emphasizeMainFrame() {
-    frameElement.classList.toggle("bounce");
-    setTimeout(() => frameElement.classList.toggle("bounce"), 200);
-  }
-
-  frameAdvance.addEventListener("click", () => {
+  function advanceFrame() {
     const imgId = frameElement.firstChild.getAttribute("data-img-id");
     if (Number(imgId) + 2 === images.length) {
       images[Number(imgId)].showPictureB();
@@ -100,11 +79,10 @@ export default function () {
       images[0].showPicture();
       images[1].showPictureA();
     }
-
     emphasizeMainFrame();
-  });
+  }
 
-  frameBack.addEventListener("click", () => {
+  function goBackFrame() {
     const imgId = frameElement.firstChild.getAttribute("data-img-id");
     if (Number(imgId) - 1 < 0) {
       images[images.length - 2].showPictureB();
@@ -119,11 +97,42 @@ export default function () {
       images[Number(imgId) - 1].showPicture();
       images[Number(imgId) - 2].showPictureB();
     }
-
     emphasizeMainFrame();
+  }
+
+  function goToFrame(imgId) {
+    if (Number(imgId) === images.length - 1) {
+      images[Number(imgId) - 1].showPictureB();
+      images[Number(imgId)].showPicture();
+      images[0].showPictureA();
+    } else if (Number(imgId) === 0) {
+      images[images.length - 1].showPictureB();
+      images[Number(imgId)].showPicture();
+      images[1].showPictureA();
+    } else {
+      images[Number(imgId) - 1].showPictureB();
+      images[Number(imgId)].showPicture();
+      images[Number(imgId) + 1].showPictureA();
+    }
+    emphasizeMainFrame();
+  }
+
+  function emphasizeMainFrame() {
+    frameElement.classList.toggle("bounce");
+    setTimeout(() => frameElement.classList.toggle("bounce"), 200);
+  }
+
+  frameAdvance.addEventListener("click", () => {
+    advanceFrame();
+  });
+
+  frameBack.addEventListener("click", () => {
+    goBackFrame();
   });
 
   images[images.length - 1].showPictureB();
   images[0].showPicture();
   images[1].showPictureA();
+
+  window.setInterval(advanceFrame, 10000);
 }
