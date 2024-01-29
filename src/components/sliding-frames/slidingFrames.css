@@ -10,6 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 80%;
+  height: 100%;
 }
 
 .sliding-frames > * {
@@ -17,15 +20,14 @@
 }
 
 .sliding-frames img {
-  max-width: 20rem;
-  max-height: 20rem;
+  height: max(25rem, 20vh);
 }
 
 .sliding-frames button {
   position: relative;
 
-  width: 4rem;
-  height: 4rem;
+  min-width: 4rem;
+  height: 25%;
 
   margin: 1rem;
 
