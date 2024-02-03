@@ -1,6 +1,6 @@
 import redImg from "./images/red.png";
 import greenImg from "./images/green.png";
-import blueImg from "./images/blue.png";
+import blueImg from "./images/blue.jpg";
 import purpleImg from "./images/purple.png";
 
 export default function () {
