@@ -12,8 +12,6 @@
   height: 100%;
   width: 20rem;
 
-  font-family: "Roboto", serif;
-
   background-color: var(--background-color);
   color: white;
 
@@ -28,8 +26,6 @@
 
 .mobile-menu-toggle {
   position: relative;
-
-  font-family: "Roboto", serif;
 
   padding: 0.3rem 0.5rem 0.3rem 0.5rem;
 
