@@ -1,6 +1,7 @@
 @import "./components/drop-down-menu/dropDown.css";
 @import "./components/mobile-menu/mobileMenu.css";
 @import "./components/sliding-frames/slidingFrames.css";
+@import "./components/user-creation-form/userCreationForm.css";
 
 /* FONTS */
 
@@ -154,10 +155,13 @@ body {
   gap: 10rem;
   width: 100vw;
 
+  background-color: grey;
+
   font-size: 1.6rem;
 }
 
 :root {
+  font-family: "Roboto", sans-serif;
   font-size: 62.5%;
 
   box-sizing: border-box;

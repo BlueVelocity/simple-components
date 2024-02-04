@@ -1,0 +1,18 @@
+.user-creation-form {
+  --main-color: #374151;
+  --secondary-color: #f97316;
+  --selection-color: #4d5b72;
+  --background-color: #374151;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 3rem;
+  align-items: center;
+  justify-items: left;
+
+  padding: 1rem;
+
+  background-color: var(--main-color);
+
+  border-radius: 1rem;
+}
