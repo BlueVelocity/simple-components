@@ -37,33 +37,33 @@
       <div class="frame-dots"></div>
     </div>
     <!-- "User creation form" component html -->
-    <form action="submit" class="user-creation-form">
-      <label for="email">Email:</label>
+    <form novalidate action="submit" class="user-creation-form">
       <div>
+        <label for="email">Email:</label>
         <input required type="email" id="email" />
         <span id="email-error"></span>
       </div>
-      <label for="country">Country:</label>
       <div>
+        <label for="country">Country:</label>
         <input required type="text" id="country" />
         <span id="country-error"></span>
       </div>
-      <label for="zip-code">Zip Code:</label>
       <div>
+        <label for="zip-code">Zip Code:</label>
         <input required type="text" id="zip-code" />
         <span id="zip-code-error"></span>
       </div>
-      <label for="password">Password:</label>
       <div>
+        <label for="password">Password:</label>
         <input required type="password" id="password" />
         <span id="password-error"></span>
       </div>
-      <label for="password-confirm">Confirm Password:</label>
       <div>
+        <label for="password-confirm">Confirm Password:</label>
         <input required type="password" id="password-confirm" />
         <span id="password-confirm-error"></span>
       </div>
-      <button>Submit</button>
+      <button>Create Account</button>
     </form>
   </body>
 </html>
