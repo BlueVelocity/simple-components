@@ -48,9 +48,8 @@ export default function () {
 
   const postalCodeInput = document.getElementById("postal-code");
   const postalCodeError = document.getElementById("postal-code-error");
-  const postalRegex = new RegExp(
-    /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i,
-  );
+  const postalRegex =
+    /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i;
 
   postalCodeInput.addEventListener("change", () => {
     postalCodeInput.setCustomValidity("");
