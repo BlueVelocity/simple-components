@@ -45,6 +45,10 @@
   outline: red 1px solid;
 }
 
+.user-creation-form input:focus {
+  outline: var(--selection-color) 1px solid;
+}
+
 .user-creation-form span {
   align-self: end;
   margin-top: 0.3rem;

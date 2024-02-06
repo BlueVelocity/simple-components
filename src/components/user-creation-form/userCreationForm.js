@@ -212,7 +212,7 @@ export default function () {
     if (emailInput.validity.valueMissing === true) {
       emailError.textContent = errorIndicator + "Email address is required";
     } else if (emailInput.validity.typeMismatch) {
-      emailError.textContent = errorIndicator + "Email address invalid";
+      emailError.textContent = errorIndicator + "Invalid email address";
     }
   }
 
@@ -236,12 +236,36 @@ export default function () {
       countryError.textContent = errorIndicator + "Country is required";
     } else if (countries.includes(countryInput.value.toLowerCase()) === false) {
       countryInput.setCustomValidity("Invalid field.");
-      countryError.textContent = errorIndicator + "Enter a valid country";
+      countryError.textContent = errorIndicator + "Invalid country name";
     }
   }
 
-  const zipCodeInput = document.getElementById("zip-code");
-  const zipCodeError = document.getElementById("zip-code-error");
+  const postalCodeInput = document.getElementById("postal-code");
+  const postalCodeError = document.getElementById("postal-code-error");
+  const postalRegex = new RegExp(
+    /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i,
+  );
+
+  postalCodeInput.addEventListener("change", () => {
+    postalCodeInput.setCustomValidity("");
+    if (
+      postalCodeInput.validity.valid === false ||
+      !postalRegex.test(postalCodeInput.value)
+    ) {
+      showPostalCodeError();
+    } else {
+      postalCodeError.textContent = "";
+    }
+  });
+
+  function showPostalCodeError() {
+    if (postalCodeInput.validity.valueMissing === true) {
+      postalCodeError.textContent = errorIndicator + "Postal code is required";
+    } else if (!postalRegex.test(postalCodeInput.value)) {
+      postalCodeInput.setCustomValidity("Invalid field.");
+      postalCodeError.textContent = errorIndicator + "Invalid postal code";
+    }
+  }
 
   const passwordInput = document.getElementById("password");
   const passwordError = document.getElementById("password-error");
