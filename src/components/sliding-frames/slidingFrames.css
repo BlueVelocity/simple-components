@@ -75,6 +75,10 @@
   transform: scale(1.05) rotate(1deg);
 }
 
+.frame.bounce-back {
+  transform: scale(1.05) rotate(-1deg);
+}
+
 .frame-dots {
   position: absolute;
   bottom: 5%;

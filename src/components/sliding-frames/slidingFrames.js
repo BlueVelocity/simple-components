@@ -79,7 +79,7 @@ export default function () {
       images[0].showPicture();
       images[1].showPictureA();
     }
-    emphasizeMainFrame();
+    animateFrameForward();
   }
 
   function goBackFrame() {
@@ -97,7 +97,7 @@ export default function () {
       images[Number(imgId) - 1].showPicture();
       images[Number(imgId) - 2].showPictureB();
     }
-    emphasizeMainFrame();
+    animateFrameBackwards();
   }
 
   function goToFrame(imgId) {
@@ -114,12 +114,17 @@ export default function () {
       images[Number(imgId)].showPicture();
       images[Number(imgId) + 1].showPictureA();
     }
-    emphasizeMainFrame();
+    animateFrameForward();
   }
 
-  function emphasizeMainFrame() {
+  function animateFrameForward() {
     frameElement.classList.toggle("bounce");
     setTimeout(() => frameElement.classList.toggle("bounce"), 200);
+  }
+
+  function animateFrameBackwards() {
+    frameElement.classList.toggle("bounce-back");
+    setTimeout(() => frameElement.classList.toggle("bounce-back"), 200);
   }
 
   frameAdvance.addEventListener("click", () => {
