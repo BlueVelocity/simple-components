@@ -121,4 +121,16 @@ export default function () {
         errorIndicator + "Passwords must match";
     }
   }
+
+  const form = document.querySelector(".user-creation-form");
+
+  form.addEventListener("submit", (event) => {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      showEmailError();
+      showCountryError();
+      showPostalCodeError();
+      showPasswordError();
+    }
+  });
 }
