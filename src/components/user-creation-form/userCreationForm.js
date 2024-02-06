@@ -15,7 +15,7 @@ export default function () {
   });
 
   function showEmailError() {
-    if (emailInput.validity.valueMissing === true) {
+    if (emailInput.validity.valueMissing) {
       emailError.textContent = errorIndicator + "Email address is required";
     } else if (emailInput.validity.typeMismatch) {
       emailError.textContent = errorIndicator + "Invalid email address";
@@ -38,7 +38,7 @@ export default function () {
   });
 
   function showCountryError() {
-    if (countryInput.validity.valueMissing === true) {
+    if (countryInput.validity.valueMissing) {
       countryError.textContent = errorIndicator + "Country is required";
     } else if (countries.includes(countryInput.value.toLowerCase()) === false) {
       countryInput.setCustomValidity("Invalid field.");
@@ -65,7 +65,7 @@ export default function () {
   });
 
   function showPostalCodeError() {
-    if (postalCodeInput.validity.valueMissing === true) {
+    if (postalCodeInput.validity.valueMissing) {
       postalCodeError.textContent = errorIndicator + "Postal code is required";
     } else if (!postalRegex.test(postalCodeInput.value)) {
       postalCodeInput.setCustomValidity("Invalid field.");
@@ -75,11 +75,51 @@ export default function () {
 
   const passwordInput = document.getElementById("password");
   const passwordError = document.getElementById("password-error");
-
-  password.addEventListener("input", () => console.log(password.value));
-
   const passwordConfirmInput = document.getElementById("password-confirm");
   const passwordConfirmError = document.getElementById(
     "password-confirm-error",
   );
+
+  passwordInput.addEventListener("input", validatePassword);
+
+  passwordConfirmInput.addEventListener("input", validatePassword);
+
+  function validatePassword() {
+    passwordConfirmInput.setCustomValidity("");
+    passwordInput.setCustomValidity("");
+    if (
+      passwordInput.validity.valid === false ||
+      passwordConfirmInput.value !== passwordInput.value ||
+      passwordInput.validity.tooShort
+    ) {
+      passwordConfirmInput.setCustomValidity("Invalid field.");
+      showPasswordError();
+    } else {
+      passwordError.textContent = "";
+      passwordConfirmError.textContent = "";
+    }
+  }
+
+  function showPasswordError() {
+    passwordError.textContent = "";
+    passwordConfirmError.textContent = "";
+    if (passwordInput.validity.valueMissing) {
+      passwordInput.setCustomValidity("Invalid field.");
+      passwordError.textContent = errorIndicator + "Password is required";
+    } else if (passwordInput.validity.tooShort) {
+      passwordInput.setCustomValidity("Invalid field.");
+      passwordConfirmInput.setCustomValidity("Invalid field.");
+      passwordError.textContent =
+        errorIndicator + "Password must be 8 characters or longer";
+    } else if (passwordConfirmInput.validity.valueMissing) {
+      passwordConfirmError.textContent =
+        errorIndicator + "Passwords must match";
+    }
+
+    if (passwordConfirmInput.value !== passwordInput.value) {
+      passwordConfirmInput.setCustomValidity("Invalid field.");
+      passwordConfirmError.textContent =
+        errorIndicator + "Passwords must match";
+    }
+  }
 }
