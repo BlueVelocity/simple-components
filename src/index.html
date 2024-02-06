@@ -39,15 +39,31 @@
     <!-- "User creation form" component html -->
     <form action="submit" class="user-creation-form">
       <label for="email">Email:</label>
-      <input type="email" id="email" />
+      <div>
+        <input type="email" id="email" />
+        <span id="email-error"></span>
+      </div>
       <label for="country">Country:</label>
-      <input type="text" id="country" />
+      <div>
+        <input type="text" id="country" />
+        <span id="country-error"></span>
+      </div>
       <label for="zip-code">Zip Code:</label>
-      <input type="text" id="zip-code" />
+      <div>
+        <input type="text" id="zip-code" />
+        <span id="zip-code-error"></span>
+      </div>
       <label for="password">Password:</label>
-      <input type="password" id="password" />
+      <div>
+        <input type="password" id="password" />
+        <span id="password-error"></span>
+      </div>
       <label for="password-confirm">Confirm Password:</label>
-      <input type="password" id="password-confirm" />
+      <div>
+        <input type="password" id="password-confirm" />
+        <span id="password-confirm-error"></span>
+      </div>
+      <button>Submit</button>
     </form>
   </body>
 </html>
