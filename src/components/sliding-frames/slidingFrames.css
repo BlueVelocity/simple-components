@@ -7,11 +7,11 @@
 
   position: relative;
 
-  width: min(80%, 100rem);
+  width: min(90%, 100rem);
 
   display: grid;
   grid-template-columns: 0.1fr repeat(3, 1fr) 0.1fr;
-  grid-template-rows: max(30rem, 20vh);
+  grid-template-rows: min(30rem, 30vw);
   align-items: center;
   justify-items: center;
   gap: 1rem;
@@ -20,7 +20,7 @@
 
   background-color: var(--background-color);
 
-  border-radius: 3rem;
+  border-radius: 1rem;
 }
 
 .sliding-frames > * {
@@ -50,35 +50,29 @@
   background-color: var(--selection-color);
 }
 
+.frame,
+.frame-a,
+.frame-b {
+  transition: transform 50ms ease-out;
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+
+  overflow: hidden;
+}
+
 .frame-b,
 .frame-a {
-  height: 100%;
-  width: auto;
-
   opacity: 50%;
 }
 
 .sliding-frames img {
-  height: 100%;
-  width: auto;
-
+  max-height: 100%;
   border-radius: 1rem;
 }
 
-.frame-a img,
-.frame-b img {
-  max-width: 100%;
-}
-
-.frame {
-  height: 100%;
-  width: auto;
-
-  transition: transform 100ms ease-out;
-}
-
 .frame.bounce {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(1deg);
 }
 
 .frame-dots {
